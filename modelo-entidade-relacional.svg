@@ -64,7 +64,7 @@
   </g>
 
   <!-- EXECUCAO_PLANEJAMENTO -->
-  <rect class="box" x="90" y="520" width="520" height="330" style="stroke:#14b8a6"/>
+  <rect class="box" x="90" y="520" width="520" height="360" style="stroke:#14b8a6"/>
   <rect x="90" y="520" width="520" height="52" fill="#ecfeff" stroke="#14b8a6" stroke-width="3" rx="14"/>
   <text class="hdr" x="350" y="553" text-anchor="middle" fill="#0f766e">EXECUCAO_PLANEJAMENTO</text>
 

@@ -373,12 +373,14 @@
             Se preferir editar/gerar novamente, veja <code>schema.dbml</code> no repositório (DBML para dbdiagram).
           </div>
           <div class="table-wrap" style="padding: 12px; background: #ffffff;">
-            <img
-              src="./modelo-entidade-relacional.svg"
-              alt="Modelo entidade-relacional: EMENDA_PRINCIPAL relacionada a EXECUCAO_PLANEJAMENTO e FLUXO_FINANCEIRO_E_EVIDENCIAS via id_emenda."
-              style="display:block; width:100%; height:auto;"
-              onerror="this.outerHTML = '<div class=&quot;note&quot;><strong>Imagem não encontrada.</strong> Garanta que o arquivo <code>modelo-entidade-relacional.svg</code> esteja publicado junto do site.</div>';"
-            />
+            <a href="./modelo-entidade-relacional.svg" target="_blank" rel="noreferrer" style="display:block;">
+              <img
+                src="./modelo-entidade-relacional.svg"
+                alt="Modelo entidade-relacional: EMENDA_PRINCIPAL relacionada a EXECUCAO_PLANEJAMENTO e FLUXO_FINANCEIRO_E_EVIDENCIAS via id_emenda."
+                style="display:block; width:100%; height:auto; cursor: zoom-in;"
+                onerror="this.closest('a')?.remove(); this.outerHTML = '<div class=&quot;note&quot;><strong>Imagem não encontrada.</strong> Garanta que o arquivo <code>modelo-entidade-relacional.svg</code> esteja publicado junto do site.</div>';"
+              />
+            </a>
           </div>
         `,
       }),
