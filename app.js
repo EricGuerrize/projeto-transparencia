@@ -369,9 +369,6 @@
         title: "Diagrama (imagem)",
         hint: "Exportável e fácil de compartilhar",
         bodyHtml: `
-          <div class="note" style="margin-bottom: 12px">
-            Se preferir editar/gerar novamente, veja <code>schema.dbml</code> no repositório (DBML para dbdiagram).
-          </div>
           <div class="table-wrap" style="padding: 12px; background: #ffffff;">
             <a href="./modelo-entidade-relacional.svg" target="_blank" rel="noreferrer" style="display:block;">
               <img
