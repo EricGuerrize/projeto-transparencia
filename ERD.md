@@ -1,4 +1,3 @@
-```mermaid
 erDiagram
   EMENDA_PRINCIPAL ||--o{ EXECUCAO_PLANEJAMENTO : "id_emenda (FK)"
   EMENDA_PRINCIPAL ||--o{ FLUXO_FINANCEIRO_E_EVIDENCIAS : "id_emenda (FK)"
@@ -40,9 +39,9 @@ erDiagram
     string   processo_administrativo
     datetime data_ultima_atualizacao
   }
-```
 
-```mermaid
+%% --- COPIE APENAS UM DIAGRAMA POR VEZ NO https://mermaid.live ---
+
 erDiagram
   PLANO_ACAO ||--|| EMENDA_PRINCIPAL : "id_plano_acao"
   EMENDA_PRINCIPAL ||--o{ EXECUCAO_PLANEJAMENTO : "id_emenda"
@@ -127,4 +126,3 @@ erDiagram
     string referencia
     date   data
   }
-```
