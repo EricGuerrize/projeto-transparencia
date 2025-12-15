@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transparência Simplificada - Simulação</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="topbar">
+      <div class="topbar__inner container">
+        <div class="brand">
+          <div class="brand__logo" aria-hidden="true">TE</div>
+          <div class="brand__text">
+            <div class="brand__title">Transparência Simplificada</div>
+            <div class="brand__subtitle">RN nº 19/2025 e TAEP — Protótipo</div>
+          </div>
+        </div>
+
+        <div class="topbar__meta">
+          <div class="pill" title="Ambiente">Simulação</div>
+          <div class="pill pill--muted" title="Versão">v0.1</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" id="conteudo">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="#/emenda" class="breadcrumb__link">Plano de Ação</a>
+        <span class="breadcrumb__sep" aria-hidden="true">›</span>
+        <span class="breadcrumb__current" id="breadcrumb-current">Detalhe</span>
+      </nav>
+
+      <section class="page-head">
+        <div class="page-head__left">
+          <h1 class="page-title" id="page-title">Dados do Plano de Ação</h1>
+          <p class="page-subtitle" id="page-subtitle">
+            Protótipo de leiaute simplificado para transparência, inspirado no Transferegov.
+          </p>
+        </div>
+        <div class="page-head__right">
+          <button class="btn btn--ghost" type="button" id="btn-copy-json">
+            Copiar JSON
+          </button>
+          <button class="btn" type="button" id="btn-download-json">
+            Baixar JSON
+          </button>
+        </div>
+      </section>
+
+      <section class="summary card" aria-label="Resumo do Plano de Ação">
+        <div class="summary__grid" id="summary-grid"></div>
+      </section>
+
+      <nav class="tabs" aria-label="Seções (abas)">
+        <a class="tab" href="#/emenda" data-route="emenda">
+          Tabela 1 — Emenda Principal
+        </a>
+        <a class="tab" href="#/execucao" data-route="execucao">
+          Tabela 2 — Execução e Planejamento
+        </a>
+        <a class="tab" href="#/fluxo" data-route="fluxo">
+          Tabela 3 — Fluxo Financeiro e Evidências
+        </a>
+      </nav>
+
+      <section class="card content" id="app" aria-live="polite"></section>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <span>Protótipo (sem backend) — dados fictícios</span>
+          <span class="footer__sep" aria-hidden="true">•</span>
+          <a href="#/emenda">Voltar ao início</a>
+        </div>
+      </footer>
+    </main>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
+
+
