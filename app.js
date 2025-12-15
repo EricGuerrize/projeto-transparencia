@@ -358,12 +358,46 @@
     setActiveTab("fluxo");
   };
 
+  const renderModeloER = () => {
+    breadcrumbCurrentEl.textContent = "Modelo Entidade Relacional";
+    pageTitleEl.textContent = "Modelo Entidade Relacional (DER)";
+    pageSubtitleEl.textContent =
+      "Diagrama do modelo (baseado no DBML / dbdiagram) para as 3 tabelas principais e relações.";
+
+    const body = [
+      section({
+        title: "Diagrama (imagem)",
+        hint: "Exportável e fácil de compartilhar",
+        bodyHtml: `
+          <div class="note" style="margin-bottom: 12px">
+            Se preferir editar/gerar novamente, veja <code>schema.dbml</code> no repositório (DBML para dbdiagram).
+          </div>
+          <div class="table-wrap" style="padding: 12px; background: #ffffff;">
+            <img
+              src="./modelo-entidade-relacional.svg"
+              alt="Modelo entidade-relacional: EMENDA_PRINCIPAL relacionada a EXECUCAO_PLANEJAMENTO e FLUXO_FINANCEIRO_E_EVIDENCIAS via id_emenda."
+              style="display:block; width:100%; height:auto;"
+              onerror="this.outerHTML = '<div class=&quot;note&quot;><strong>Imagem não encontrada.</strong> Garanta que o arquivo <code>modelo-entidade-relacional.svg</code> esteja publicado junto do site.</div>';"
+            />
+          </div>
+        `,
+      }),
+      `<div class="note">
+        <strong>Dica:</strong> no <code>dbdiagram.io</code>, cole o conteúdo de <code>schema.dbml</code> e exporte PNG/SVG se quiser um visual diferente.
+      </div>`,
+    ].join("");
+
+    appEl.innerHTML = body;
+    setActiveTab("modelo");
+  };
+
   const getRoute = () => {
     const hash = String(window.location.hash || "").trim();
     const cleaned = hash.replace(/^#\/?/, "");
     const route = cleaned.split("?")[0].split("#")[0];
     if (route === "execucao") return "execucao";
     if (route === "fluxo") return "fluxo";
+    if (route === "modelo") return "modelo";
     return "emenda";
   };
 
@@ -372,6 +406,7 @@
     renderSummary();
     if (route === "execucao") return renderTabela2();
     if (route === "fluxo") return renderTabela3();
+    if (route === "modelo") return renderModeloER();
     return renderTabela1();
   };
 

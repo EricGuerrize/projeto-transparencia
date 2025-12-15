@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <style>
+      .bg { fill: #f6f7fb; }
+      .box { fill: #ffffff; stroke-width: 3; rx: 14; }
+      .hdr { font: 700 18px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+      .txt { font: 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #111827; }
+      .mut { font: 12px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #6b7280; }
+      .line { stroke: #374151; stroke-width: 3; fill: none; }
+      .cap { stroke: #374151; stroke-width: 3; }
+      .badge { fill: #f3f4f6; stroke: #e5e7eb; stroke-width: 1; }
+      .badgeText { font: 700 10px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #374151; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="900"/>
+
+  <!-- EMENDA_PRINCIPAL -->
+  <rect class="box" x="460" y="70" width="480" height="360" style="stroke:#a855f7"/>
+  <rect x="460" y="70" width="480" height="52" fill="#faf5ff" stroke="#a855f7" stroke-width="3" rx="14"/>
+  <text class="hdr" x="700" y="103" text-anchor="middle" fill="#7e22ce">EMENDA_PRINCIPAL</text>
+
+  <!-- rows -->
+  <g transform="translate(480,140)">
+    <text class="mut" x="0" y="0">tipo</text>
+    <text class="mut" x="120" y="0">campo</text>
+    <text class="mut" x="400" y="0">chave</text>
+
+    <g transform="translate(0,22)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="120" y="0">id_emenda</text>
+      <rect class="badge" x="402" y="-14" width="40" height="18" rx="9"/>
+      <text class="badgeText" x="422" y="-1" text-anchor="middle">PK</text>
+    </g>
+
+    <g transform="translate(0,52)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="120" y="0">id_plano_acao</text>
+    </g>
+    <g transform="translate(0,82)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="120" y="0">nome_parlamentar_autor</text>
+    </g>
+    <g transform="translate(0,112)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="120" y="0">codigo_unico_emenda</text>
+    </g>
+    <g transform="translate(0,142)">
+      <text class="txt" x="0" y="0">decimal</text>
+      <text class="txt" x="120" y="0">valor_total_alocado</text>
+    </g>
+    <g transform="translate(0,172)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="120" y="0">cnpj_orgao_beneficiario</text>
+    </g>
+    <g transform="translate(0,202)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="120" y="0">uf_aplicacao</text>
+    </g>
+    <g transform="translate(0,232)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="120" y="0">nome_programa_orcamentario</text>
+    </g>
+  </g>
+
+  <!-- EXECUCAO_PLANEJAMENTO -->
+  <rect class="box" x="90" y="520" width="520" height="330" style="stroke:#14b8a6"/>
+  <rect x="90" y="520" width="520" height="52" fill="#ecfeff" stroke="#14b8a6" stroke-width="3" rx="14"/>
+  <text class="hdr" x="350" y="553" text-anchor="middle" fill="#0f766e">EXECUCAO_PLANEJAMENTO</text>
+
+  <g transform="translate(110,590)">
+    <g transform="translate(0,0)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="120" y="0">id_executor</text>
+      <rect class="badge" x="420" y="-14" width="40" height="18" rx="9"/>
+      <text class="badgeText" x="440" y="-1" text-anchor="middle">PK</text>
+    </g>
+    <g transform="translate(0,30)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="120" y="0">id_emenda</text>
+      <rect class="badge" x="420" y="-14" width="40" height="18" rx="9"/>
+      <text class="badgeText" x="440" y="-1" text-anchor="middle">FK</text>
+    </g>
+    <g transform="translate(0,60)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="120" y="0">nome_executor</text>
+    </g>
+    <g transform="translate(0,90)">
+      <text class="txt" x="0" y="0">text</text>
+      <text class="txt" x="120" y="0">objeto_detalhado</text>
+    </g>
+    <g transform="translate(0,120)">
+      <text class="txt" x="0" y="0">text</text>
+      <text class="txt" x="120" y="0">finalidade_politica_publica</text>
+    </g>
+    <g transform="translate(0,150)">
+      <text class="txt" x="0" y="0">text</text>
+      <text class="txt" x="120" y="0">descricao_metas</text>
+    </g>
+    <g transform="translate(0,180)">
+      <text class="txt" x="0" y="0">date</text>
+      <text class="txt" x="120" y="0">data_inicio_prevista</text>
+    </g>
+    <g transform="translate(0,210)">
+      <text class="txt" x="0" y="0">date</text>
+      <text class="txt" x="120" y="0">data_fim_prevista</text>
+    </g>
+    <g transform="translate(0,240)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="120" y="0">status_plano_trabalho</text>
+    </g>
+    <g transform="translate(0,270)">
+      <text class="txt" x="0" y="0">text</text>
+      <text class="txt" x="120" y="0">dados_conta_especifica</text>
+    </g>
+  </g>
+
+  <!-- FLUXO_FINANCEIRO_E_EVIDENCIAS -->
+  <rect class="box" x="790" y="480" width="540" height="370" style="stroke:#f97316"/>
+  <rect x="790" y="480" width="540" height="52" fill="#fff7ed" stroke="#f97316" stroke-width="3" rx="14"/>
+  <text class="hdr" x="1060" y="513" text-anchor="middle" fill="#c2410c">FLUXO_FINANCEIRO_E_EVIDENCIAS</text>
+
+  <g transform="translate(810,550)">
+    <g transform="translate(0,0)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="140" y="0">id_rastreabilidade</text>
+      <rect class="badge" x="440" y="-14" width="40" height="18" rx="9"/>
+      <text class="badgeText" x="460" y="-1" text-anchor="middle">PK</text>
+    </g>
+    <g transform="translate(0,30)">
+      <text class="txt" x="0" y="0">string</text>
+      <text class="txt" x="140" y="0">id_emenda</text>
+      <rect class="badge" x="440" y="-14" width="40" height="18" rx="9"/>
+      <text class="badgeText" x="460" y="-1" text-anchor="middle">FK</text>
+    </g>
+    <g transform="translate(0,60)"><text class="txt" x="0" y="0">string</text><text class="txt" x="140" y="0">numero_empenho</text></g>
+    <g transform="translate(0,90)"><text class="txt" x="0" y="0">string</text><text class="txt" x="140" y="0">numero_documento_habil</text></g>
+    <g transform="translate(0,120)"><text class="txt" x="0" y="0">string</text><text class="txt" x="140" y="0">numero_ordem_pagamento_bancaria</text></g>
+    <g transform="translate(0,150)"><text class="txt" x="0" y="0">string</text><text class="txt" x="140" y="0">status_financeiro_atual</text></g>
+    <g transform="translate(0,180)"><text class="txt" x="0" y="0">decimal</text><text class="txt" x="140" y="0">valor_efetivamente_executado</text></g>
+    <g transform="translate(0,210)"><text class="txt" x="0" y="0">string</text><text class="txt" x="140" y="0">status_prestacao_contas</text></g>
+    <g transform="translate(0,240)"><text class="txt" x="0" y="0">string</text><text class="txt" x="140" y="0">processo_licitatorio_vinculado</text></g>
+    <g transform="translate(0,270)"><text class="txt" x="0" y="0">string</text><text class="txt" x="140" y="0">processo_administrativo</text></g>
+    <g transform="translate(0,300)"><text class="txt" x="0" y="0">datetime</text><text class="txt" x="140" y="0">data_ultima_atualizacao</text></g>
+  </g>
+
+  <!-- Relationship lines from EMENDA_PRINCIPAL -->
+  <!-- to EXECUCAO_PLANEJAMENTO -->
+  <path class="line" d="M 470 410 C 470 480, 350 470, 350 520" />
+  <!-- crow foot near child -->
+  <path class="cap" d="M 338 520 L 350 508" />
+  <path class="cap" d="M 362 520 L 350 508" />
+  <circle cx="470" cy="410" r="6" fill="#f6f7fb" stroke="#374151" stroke-width="3"/>
+  <text class="mut" x="220" y="485">id_emenda (FK)</text>
+
+  <!-- to FLUXO_FINANCEIRO_E_EVIDENCIAS -->
+  <path class="line" d="M 930 410 C 930 445, 1060 440, 1060 480" />
+  <path class="cap" d="M 1048 480 L 1060 468" />
+  <path class="cap" d="M 1072 480 L 1060 468" />
+  <circle cx="930" cy="410" r="6" fill="#f6f7fb" stroke="#374151" stroke-width="3"/>
+  <text class="mut" x="1130" y="455">id_emenda (FK)</text>
+</svg>
+
+
