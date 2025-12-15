@@ -1,7 +1,9 @@
 // Use DBML to define your database structure
 // Docs: https://dbml.dbdiagram.io/docs
-//
-// Fonte: veja também `schema.dbml` (mesmo conteúdo).
+
+// =========================
+// Modelo mínimo (3 tabelas)
+// =========================
 
 Table emenda_principal {
   id_emenda varchar [primary key]
@@ -50,8 +52,12 @@ Table fluxo_financeiro_e_evidencias {
   data_ultima_atualizacao timestamp
 }
 
-Ref emenda_execucao: execucao_planejamento.id_emenda > emenda_principal.id_emenda
-Ref emenda_fluxo: fluxo_financeiro_e_evidencias.id_emenda > emenda_principal.id_emenda
+Ref emenda_execucao: execucao_planejamento.id_emenda > emenda_principal.id_emenda // many-to-one
+Ref emenda_fluxo: fluxo_financeiro_e_evidencias.id_emenda > emenda_principal.id_emenda // many-to-one
+
+// ==================================================
+// Extensão normalizada (listas como tabelas filhas)
+// ==================================================
 
 Table plano_acao {
   id_plano_acao varchar [primary key]
@@ -96,7 +102,9 @@ Table evidencia {
   data date
 }
 
-Ref plano_emenda: emenda_principal.id_plano_acao > plano_acao.id_plano_acao
-Ref execucao_cronograma: cronograma_etapa.id_executor > execucao_planejamento.id_executor
-Ref fluxo_trilha: trilha_financeira_evento.id_rastreabilidade > fluxo_financeiro_e_evidencias.id_rastreabilidade
-Ref fluxo_evidencia: evidencia.id_rastreabilidade > fluxo_financeiro_e_evidencias.id_rastreabilidade
+Ref plano_emenda: emenda_principal.id_plano_acao > plano_acao.id_plano_acao // many-to-one
+Ref execucao_cronograma: cronograma_etapa.id_executor > execucao_planejamento.id_executor // many-to-one
+Ref fluxo_trilha: trilha_financeira_evento.id_rastreabilidade > fluxo_financeiro_e_evidencias.id_rastreabilidade // many-to-one
+Ref fluxo_evidencia: evidencia.id_rastreabilidade > fluxo_financeiro_e_evidencias.id_rastreabilidade // many-to-one
+
+

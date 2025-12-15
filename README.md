@@ -24,7 +24,10 @@ Edite o arquivo `data.js` para trocar valores, adicionar evidências, etapas do 
 
 ## DER / ERD
 
-O diagrama entidade-relacionamento está em `ERD.md` (inclui versão mínima com 3 tabelas e uma versão normalizada para listas como cronograma/evidências).
+O diagrama entidade-relacionamento está em **DBML** (para colar no dbdiagram):
+
+- `schema.dbml` (fonte principal)
+- `ERD.md` (mesmo conteúdo, pronto para copiar)
 
 ## Navegação
 
