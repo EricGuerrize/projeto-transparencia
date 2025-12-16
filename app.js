@@ -82,6 +82,190 @@
     </div>
   `;
 
+  const renderDictionaryTable = ({ title, hint, rows }) => {
+    const bodyRows = (rows || [])
+      .map(
+        (r) => `
+        <tr>
+          <td><code>${escapeHtml(r.campo)}</code></td>
+          <td>${escapeHtml(r.rn)}</td>
+          <td>${escapeHtml(r.taep)}</td>
+        </tr>
+      `
+      )
+      .join("");
+
+    return section({
+      title,
+      hint,
+      bodyHtml: `
+        <div class="table-wrap" aria-label="${escapeHtml(title)}">
+          <table>
+            <thead>
+              <tr>
+                <th>Campo (Novo)</th>
+                <th>Requisito RN nº 19/2025 (Art. 3º)</th>
+                <th>Requisito TAEP</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${bodyRows || `<tr><td colspan="3">Sem dados</td></tr>`}
+            </tbody>
+          </table>
+        </div>
+      `,
+    });
+  };
+
+  const DATA_DICTIONARY = {
+    emenda: [
+      {
+        campo: "id_emenda (PK)",
+        rn: "Chave de Rastreabilidade",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "nome_parlamentar_autor",
+        rn: "I. Identificação do parlamentar proponente",
+        taep: "2.1 Identificação do parlamentar autor",
+      },
+      {
+        campo: "codigo_unico_emenda",
+        rn: "II. Identificação da emenda",
+        taep: "1.2 Publicação da lista",
+      },
+      {
+        campo: "valor_total_alocado",
+        rn: "IV. Valor alocado",
+        taep: "2.2 Valor total da emenda",
+      },
+      {
+        campo: "cnpj_orgao_beneficiario",
+        rn: "V. Órgão ou entidade executora",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "uf_aplicacao",
+        rn: "VI. Localidade beneficiada",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "nome_programa_orcamentario",
+        rn: "II. Ato normativo/Ação Orçamentária",
+        taep: "1.2 Ação orçamentária (para lista completa)",
+      },
+    ],
+    execucao: [
+      {
+        campo: "id_executor (PK)",
+        rn: "V. Entidade executora",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "id_emenda (FK)",
+        rn: "Chave de Ligação",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "nome_executor",
+        rn: "V. Nome da entidade executora",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "objeto_detalhado",
+        rn: "III. Objeto da despesa/Descrição detalhada",
+        taep: "2.3 Finalidade da emenda (detalhada)",
+      },
+      {
+        campo: "finalidade_politica_publica",
+        rn: "III. Finalidade específica",
+        taep: "2.3 Finalidade da emenda (específica)",
+      },
+      {
+        campo: "descricao_metas",
+        rn: "III. Metas a serem alcançadas",
+        taep: "2.5 Status/Metas (para acompanhamento)",
+      },
+      {
+        campo: "data_inicio_prevista",
+        rn: "VII. Cronograma de execução (início)",
+        taep: "2.4 Cronograma (prazos)",
+      },
+      {
+        campo: "data_fim_prevista",
+        rn: "VII. Cronograma de execução (término)",
+        taep: "2.4 Cronograma (prazos)",
+      },
+      {
+        campo: "status_plano_trabalho",
+        rn: "VII. Fases ou etapas intermediárias",
+        taep: "2.5 Status da execução",
+      },
+      {
+        campo: "dados_conta_especifica",
+        rn: "Controle (Art. 2º, IV da RN)",
+        taep: "TAEP (Verificação de conta exclusiva)",
+      },
+    ],
+    fluxo: [
+      {
+        campo: "id_rastreabilidade (PK)",
+        rn: "Rastreabilidade",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "id_emenda (FK)",
+        rn: "Chave de Ligação",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "numero_empenho",
+        rn: "VIII. Nota de Empenho",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "numero_documento_habil",
+        rn: "VIII. Liquidação",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "numero_ordem_pagamento_bancaria",
+        rn: "VIII. Ordem Bancária de Pagamento",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "status_financeiro_atual",
+        rn: "VIII. Dados da execução",
+        taep: "2.5 Status da execução (detalhado)",
+      },
+      {
+        campo: "valor_efetivamente_executado",
+        rn: "VIII. Evidências de execução",
+        taep: "2.5 Status (para cálculo do avanço)",
+      },
+      {
+        campo: "status_prestacao_contas",
+        rn: "VIII. Relatórios",
+        taep: "2.5 Status da execução",
+      },
+      {
+        campo: "processo_licitatorio_vinculado",
+        rn: "VIII. Procedimento de contratação",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "processo_administrativo",
+        rn: "IX. Instrumentos vinculados",
+        taep: "Rastreabilidade",
+      },
+      {
+        campo: "data_ultima_atualizacao",
+        rn: "Art. 6º, III (Tempestividade)",
+        taep: "4.2 Data da última atualização",
+      },
+    ],
+  };
+
   const renderSummary = () => {
     const p = data.planoAcao;
     summaryGridEl.innerHTML = [
@@ -151,6 +335,11 @@
             ${field({ label: "valor_investimento", value: fmtMoney(data.planoAcao.emenda.valor_investimento), span: 4 })}
           </div>
         `,
+      }),
+      renderDictionaryTable({
+        title: "Dicionário de Campos (Tabela 1 — sem a coluna em vermelho)",
+        hint: "Campo (Novo) × Requisitos RN/TAEP",
+        rows: DATA_DICTIONARY.emenda,
       }),
       `<div class="note">
         <strong>Nota:</strong> esta tela é a “Tabela 1 — EMENDA_PRINCIPAL”, focada em <strong>Origem e Alocação</strong>.
@@ -232,6 +421,11 @@
             </table>
           </div>
         `,
+      }),
+      renderDictionaryTable({
+        title: "Dicionário de Campos (Tabela 2 — sem a coluna em vermelho)",
+        hint: "Campo (Novo) × Requisitos RN/TAEP",
+        rows: DATA_DICTIONARY.execucao,
       }),
       `<div class="note">
         <strong>Nota:</strong> esta tela é a “Tabela 2 — EXECUCAO_PLANEJAMENTO”, focada em
@@ -347,6 +541,11 @@
             </table>
           </div>
         `,
+      }),
+      renderDictionaryTable({
+        title: "Dicionário de Campos (Tabela 3 — sem a coluna em vermelho)",
+        hint: "Campo (Novo) × Requisitos RN/TAEP",
+        rows: DATA_DICTIONARY.fluxo,
       }),
       `<div class="note">
         <strong>Nota:</strong> esta tela é a “Tabela 3 — FLUXO_FINANCEIRO_E_EVIDENCIAS”, focada em
